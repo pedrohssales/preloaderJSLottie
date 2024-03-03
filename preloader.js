@@ -38,7 +38,7 @@ function hideOverlay() {
         renderer: 'svg', // ou 'canvas' se preferir
         loop: true,
         autoplay: true,
-        path: 'https://pedrohssales.github.io/preloaderJSLottie/carregamento-cmeax.json',
+        path: 'https://pedrohssales.github.io/preloaderJSLottie/Animation - 1709445288499.json',
     });
 }
 
