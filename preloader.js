@@ -18,32 +18,29 @@ lottieContainer.id = 'lottieContainer';
 lottieContainer.style.cssText = `
     max-width: 100%;
     max-height: 100%;
-    display: none;
+    display: flex; /* Alterado de 'none' para 'flex' */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 `;
-lottieContainer.style.display = 'none';
 
 document.body.appendChild(overlay);
 document.body.appendChild(lottieContainer);
 
-function hideOverlay() {
-    overlay.style.display = 'none';
-    lottieContainer.style.display = 'block';
-    // Substitua pela URL direta do seu arquivo JSON do Lottie.
-    lottie.loadAnimation({
-        container: lottieContainer,
-        renderer: 'svg', // ou 'canvas' se preferir
-        loop: true,
-        autoplay: true,
-        path: 'https://pedrohssales.github.io/preloaderJSLottie/carregamento-cmeax.json',
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    hideOverlay(); // Teste sem o setTimeout
+// Carregar a animação do Lottie imediatamente após a criação do container
+lottie.loadAnimation({
+    container: lottieContainer,
+    renderer: 'svg', // ou 'canvas' se preferir
+    loop: true,
+    autoplay: true,
+    path: 'https://pedrohssales.github.io/preloaderJSLottie/carregamento-cmeax.json',
 });
 
+function hideOverlay() {
+    overlay.style.display = 'none';
+    lottieContainer.style.display = 'none';
+}
+
+// Remover o Lottie e o overlay assim que a página estiver completamente carregada
 window.addEventListener('load', hideOverlay);
